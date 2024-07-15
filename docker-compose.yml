@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  database:
+    container_name: database
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: guarantee_tracking
+      POSTGRES_USER: guarantee-user
+      POSTGRES_PASSWORD: guarantee-password
+      POSTGRES_ROOT_PASSWORD: rootpass
+      POSTGRES_PORT: 5432
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"

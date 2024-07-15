@@ -10,7 +10,6 @@ create table if not exists device
     updated_at    timestamp(0)
 );
 
--- Warranty tablosu
 create table if not exists warranty
 (
     id              bigserial
