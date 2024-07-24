@@ -29,6 +29,7 @@ public class DeviceServiceImpl implements DeviceService {
         Device device = createRequestToDeviceMapper.map(createRequest);
 
         device.setSerialNumber(this.generateUniqueSerialNumber(createRequest.brand(), createRequest.model()));
+        device.isActive();
 
         deviceRepository.save(deviceToEntityMapper.map(device));
     }
