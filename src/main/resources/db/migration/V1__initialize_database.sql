@@ -2,14 +2,13 @@ create table if not exists device
 (
     id            bigserial
         constraint pk__device__id primary key,
-    serial_number varchar(15)  not null
+    serial_number varchar(11) not null
         constraint u__device__serial_number unique,
     brand         varchar(150) not null,
     model         varchar(200) not null,
-    status varchar(20) not null
-        constraint c__device__status check (status in ('ACTIVE', 'INACTIVE', 'DELETED')),
     created_at    timestamp(0) not null,
-    updated_at    timestamp(0)
+    updated_at    timestamp(0),
+    deleted_at    timestamp(0)
 );
 
 create table if not exists warranty
@@ -25,9 +24,9 @@ create table if not exists warranty
     updated_at      timestamp(0)
 );
 
-insert into device (serial_number, brand, model, status, created_at)
-values ('123456789012344', 'brand', 'phone', 'ACTIVE', current_timestamp),
-       ('123456789012361', 'brand', 'tab', 'ACTIVE', current_timestamp);
+insert into device (serial_number, brand, model, created_at)
+values ('12349012344', 'brand', 'phone', current_timestamp),
+       ('12789012361', 'brand', 'tab', current_timestamp);
 
 insert into warranty (device_id, purchase_date, warranty_status, created_at)
 values (1, '2022-07-01', 'ACTIVE', current_timestamp),
