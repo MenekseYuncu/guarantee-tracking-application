@@ -3,7 +3,7 @@ package org.menekseyuncu.guaranteetrackingapplication.device.controller.request;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
-public record DeviceCreateRequest(
+public record DeviceUpdateRequest(
 
         @NotBlank
         @Size(min = 2, max = 300)
@@ -12,5 +12,7 @@ public record DeviceCreateRequest(
         @NotBlank
         @Size(min = 2, max = 500)
         String model
+
 ) {
+
 }
