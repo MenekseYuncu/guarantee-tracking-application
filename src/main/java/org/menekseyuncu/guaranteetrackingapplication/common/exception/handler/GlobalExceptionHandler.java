@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.menekseyuncu.guaranteetrackingapplication.common.controller.response.ErrorResponse;
 import org.menekseyuncu.guaranteetrackingapplication.common.exception.AlreadyExistException;
 import org.menekseyuncu.guaranteetrackingapplication.common.exception.NotFoundException;
-import org.menekseyuncu.guaranteetrackingapplication.common.exception.StatusAlreadyChangedException;
+import org.menekseyuncu.guaranteetrackingapplication.common.exception.AlreadyChangedException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -41,9 +41,9 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(StatusAlreadyChangedException.class)
+    @ExceptionHandler(AlreadyChangedException.class)
     @ResponseStatus(HttpStatus.CONFLICT)
-    public ResponseEntity<ErrorResponse> handleRmaStatusAlreadyChangedException(final StatusAlreadyChangedException exception) {
+    public ResponseEntity<ErrorResponse> handleRmaStatusAlreadyChangedException(final AlreadyChangedException exception) {
         log.error(exception.getMessage(), exception);
         ErrorResponse errorResponse = ErrorResponse.failureOf(HttpStatus.CONFLICT, exception.getMessage());
         return new ResponseEntity<>(errorResponse, HttpStatus.CONFLICT);

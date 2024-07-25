@@ -3,12 +3,12 @@ package org.menekseyuncu.guaranteetrackingapplication.common.exception;
 import java.io.Serial;
 
 
-public class StatusAlreadyChangedException extends RuntimeException {
+public class AlreadyChangedException extends RuntimeException {
 
     @Serial
     private static final long serialVersionUID = -766040117622969528L;
 
-    public StatusAlreadyChangedException(String message) {
+    public AlreadyChangedException(String message) {
         super(message);
     }
 }
