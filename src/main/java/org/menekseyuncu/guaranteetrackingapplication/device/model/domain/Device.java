@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+//TODO: javadoc ekle
 @Getter
 @Setter
 @Builder

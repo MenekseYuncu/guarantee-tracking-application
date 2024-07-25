@@ -1,4 +1,4 @@
-package org.menekseyuncu.guaranteetrackingapplication.device.model;
+package org.menekseyuncu.guaranteetrackingapplication.device.model.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,6 +13,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.menekseyuncu.guaranteetrackingapplication.common.repository.entity.BaseEntity;
 
+import java.time.LocalDateTime;
+
+// TODO: javadoc ekle
 @Getter
 @Setter
 @Entity
@@ -35,4 +38,12 @@ public class DeviceEntity extends BaseEntity {
 
     @Column(name = "model")
     private String model;
+
+    @Column(name = "deleted_at")
+    private LocalDateTime deletedAt;
+
+    //todo: javadoc ekle
+    public void delete() {
+        this.deletedAt = LocalDateTime.now();
+    }
 }
