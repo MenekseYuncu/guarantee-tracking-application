@@ -8,8 +8,8 @@ import org.testcontainers.junit.jupiter.Container;
 public interface TestContainer {
     @Container
     PostgreSQLContainer<?> POSTGRESQL_CONTAINER = new PostgreSQLContainer<>("postgres:latest")
-            .withUsername("restaurant_user")
-            .withPassword("restaurant_password");
+            .withUsername("guarantee_tracking_user")
+            .withPassword("guarantee_tracking_password");
 
     @DynamicPropertySource
     static void overrideProps(DynamicPropertyRegistry dynamicPropertyRegistry) {

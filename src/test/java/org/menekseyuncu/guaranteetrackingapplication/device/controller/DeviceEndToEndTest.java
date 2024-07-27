@@ -92,6 +92,6 @@ class DeviceEndToEndTest extends EndToEndTest implements TestContainer {
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.isSuccess").value(true));
-
     }
+
 }

@@ -66,7 +66,7 @@ public class DeviceServiceImpl implements DeviceService {
         DeviceEntity deviceEntity = deviceRepository.findById(id)
                 .orElseThrow(DeviceNotFoundException::new);
 
-        this.checkExistingStatus(deviceEntity.getDeletedAt());
+        this.checkExistingDevice(deviceEntity.getDeletedAt());
 
         deviceEntity.delete();
 
@@ -81,7 +81,7 @@ public class DeviceServiceImpl implements DeviceService {
     }
 
     //todo: javadoc ekle
-    private void checkExistingStatus(LocalDateTime deletedAt) {
+    private void checkExistingDevice(LocalDateTime deletedAt) {
         if (deletedAt != null) {
             throw new DeviceAlreadyDeletedException();
         }
