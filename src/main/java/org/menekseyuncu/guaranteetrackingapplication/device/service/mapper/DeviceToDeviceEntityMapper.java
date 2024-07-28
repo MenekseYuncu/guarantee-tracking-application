@@ -6,6 +6,9 @@ import org.menekseyuncu.guaranteetrackingapplication.common.model.mapper.BaseMap
 import org.menekseyuncu.guaranteetrackingapplication.device.model.entity.DeviceEntity;
 import org.menekseyuncu.guaranteetrackingapplication.device.model.domain.Device;
 
+/**
+ * Mapper interface for converting {@link Device} DTOs to {@link DeviceEntity} entities.
+ */
 @Mapper
 public interface DeviceToDeviceEntityMapper extends BaseMapper<Device, DeviceEntity> {
 

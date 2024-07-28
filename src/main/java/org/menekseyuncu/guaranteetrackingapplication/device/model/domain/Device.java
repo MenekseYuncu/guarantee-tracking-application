@@ -8,7 +8,9 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
-//TODO: javadoc ekle
+/**
+ * Represents a device with its associated attributes.
+ */
 @Getter
 @Setter
 @Builder

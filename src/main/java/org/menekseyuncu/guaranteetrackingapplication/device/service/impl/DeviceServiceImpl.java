@@ -13,6 +13,7 @@ import org.menekseyuncu.guaranteetrackingapplication.device.repository.DeviceRep
 import org.menekseyuncu.guaranteetrackingapplication.device.service.DeviceService;
 import org.menekseyuncu.guaranteetrackingapplication.device.service.mapper.DeviceCreateRequestToDeviceMapper;
 import org.menekseyuncu.guaranteetrackingapplication.device.service.mapper.DeviceToDeviceEntityMapper;
+import org.menekseyuncu.guaranteetrackingapplication.warranty.service.WarrantyService;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -28,6 +29,8 @@ public class DeviceServiceImpl implements DeviceService {
 
 
     private final DeviceRepository deviceRepository;
+    private final WarrantyService warrantyService;
+
 
     private static final DeviceCreateRequestToDeviceMapper createRequestToDeviceMapper = DeviceCreateRequestToDeviceMapper.INSTANCE;
     private static final DeviceToDeviceEntityMapper deviceToEntityMapper = DeviceToDeviceEntityMapper.INSTANCE;
@@ -44,7 +47,10 @@ public class DeviceServiceImpl implements DeviceService {
 
         device.setSerialNumber(this.generateUniqueSerialNumber());
 
-        deviceRepository.save(deviceToEntityMapper.map(device));
+        DeviceEntity savedDevice = deviceRepository.save(deviceToEntityMapper.map(device));
+
+        warrantyService.createWarrantyForDevice(savedDevice.getId());
+
     }
 
 

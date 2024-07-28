@@ -6,6 +6,9 @@ import org.menekseyuncu.guaranteetrackingapplication.common.model.mapper.BaseMap
 import org.menekseyuncu.guaranteetrackingapplication.device.controller.request.DeviceCreateRequest;
 import org.menekseyuncu.guaranteetrackingapplication.device.model.domain.Device;
 
+/**
+ * Mapper interface for converting {@link DeviceCreateRequest} to {@link Device}.
+ */
 @Mapper
 public interface DeviceCreateRequestToDeviceMapper extends BaseMapper<DeviceCreateRequest, Device> {
 
