@@ -15,7 +15,11 @@ import org.menekseyuncu.guaranteetrackingapplication.common.repository.entity.Ba
 
 import java.time.LocalDateTime;
 
-// TODO: javadoc ekle
+/**
+ * Represents a device entity in the guarantee tracking application.
+ * This entity stores information about a device such as serial number, brand, and model.
+ * It also extends {@link BaseEntity} to include common entity fields.
+ */
 @Getter
 @Setter
 @Entity
@@ -25,24 +29,44 @@ import java.time.LocalDateTime;
 @Table(name = "device")
 public class DeviceEntity extends BaseEntity {
 
+    /**
+     * The unique identifier for the device.
+     */
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    /**
+     * The serial number of the device.
+     * This should be unique for each device.
+     */
     @Column(name = "serial_number")
     private String serialNumber;
 
+    /**
+     * The brand of the device.
+     */
     @Column(name = "brand")
     private String brand;
 
+    /**
+     * The model of the device.
+     */
     @Column(name = "model")
     private String model;
 
+    /**
+     * The timestamp when the device was deleted.
+     * If this field is null, the device is considered active.
+     */
     @Column(name = "deleted_at")
     private LocalDateTime deletedAt;
 
-    //todo: javadoc ekle
+    /**
+     * Marks the device as deleted by setting the {@code deletedAt} field to the current timestamp.
+     * This method should be used instead of actually removing the device from the database to keep a record of deleted devices.
+     */
     public void delete() {
         this.deletedAt = LocalDateTime.now();
     }
