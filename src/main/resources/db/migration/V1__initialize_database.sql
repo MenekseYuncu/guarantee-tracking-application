@@ -19,7 +19,7 @@ create table if not exists warranty
         constraint fk__warranty__device__id references device (id),
     purchase_date   date         not null,
     warranty_status varchar(20)  not null
-        constraint c__warranty_status__status check (warranty_status in ('ACTIVE', 'EXPIRED', 'PENDING')),
+        constraint c__warranty_status__status check (warranty_status in ('ACTIVE', 'EXPIRED')),
     created_at      timestamp(0) not null,
     updated_at      timestamp(0)
 );
