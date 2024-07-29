@@ -133,5 +133,5 @@ You can use the Postman API collection to test the project. You can download the
 
 # Project Infrastucture
 
-<img src="structure.png" width="7000" alt=""/>
+<img src="structer.png" width="7000" alt=""/>
 
