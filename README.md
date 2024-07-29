@@ -131,7 +131,4 @@ You can use the Postman API collection to test the project. You can download the
 - Click the 'Import' button to import the collection.
 - You can now test the API by sending various requests in Postman.
 
-# Project Infrastucture
-
-<img src="structer.png" width="7000" alt=""/>
 
